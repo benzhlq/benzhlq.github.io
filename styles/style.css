@@ -35,6 +35,12 @@ header .logo {
     font-weight: bold;
 }
 
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
 nav a {
     margin: 0 15px;
     text-decoration: none;
