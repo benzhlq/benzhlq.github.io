@@ -235,3 +235,83 @@ footer {
         font-size: 2.5em;
     }
 }
+
+/* Mobile-friendly styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 50px 10px;
+    }
+
+    .hero h1 {
+        font-size: 3em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .get-started-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .features {
+        padding: 30px 10px;
+    }
+
+    .features h2 {
+        font-size: 2em;
+    }
+
+    .feature-item {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .slogan-content h2 {
+        font-size: 2.5em;
+    }
+
+    .slogan-content p {
+        font-size: 1.2em;
+    }
+
+    .invite-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        padding: 10px 20px;
+    }
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left, .footer-right {
+    font-weight: bold;
+    cursor: pointer;
+    color: #f7f7f7;
+}
+
+.footer-left:hover, .footer-right:hover {
+    text-decoration: underline;
+}
