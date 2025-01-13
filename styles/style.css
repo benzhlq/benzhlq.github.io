@@ -65,7 +65,8 @@ nav a {
 .hero {
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(135deg, #ffb347, #ffcc33);
+    background: url('https://media.discordapp.net/attachments/1314726956893470811/1328413819806158849/vecteezy_abstract-gradient-yellow-liquid-wave-banner-template_25674278.jpg?ex=67869d47&is=67854bc7&hm=30351e462a3658da58a1d6f0742abca1b74c719cf02a93fe5273d4b64683105c&=&format=webp&width=1440&height=359') no-repeat center center;
+    background-size: cover;
     color: #2a2a2a;
 }
 
