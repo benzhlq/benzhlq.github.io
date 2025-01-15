@@ -1,317 +1,400 @@
 /* Ensure the page container fills the height and positions the footer at the bottom */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* Other styles remain the same */
 body {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    box-sizing: border-box;
-    background: #ffe97f;
-    color: #fff;
+  font-family: "Bricolage Grotesque", sans-serif;
+  box-sizing: border-box;
+  background: #ffe97f;
+  color: #fff;
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 40px;
-    background: #2a2a2a;
-    color: #f7f7f7;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  background: #2a2a2a;
+  color: #f7f7f7;
+  position: relative;
 }
 
 header .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    position: absolute;
-    left: 40px;
+  font-size: 1.5em;
+  font-weight: bold;
+  position: absolute;
+  left: 40px;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #f7f7f7;
-    font-weight: 500;
+  margin: 0 15px;
+  text-decoration: none;
+  color: #f7f7f7;
+  font-weight: 500;
 }
 
 .login-btn {
-    padding: 10px 20px;
-    background: #ffffff;
-    border: none;
-    border-radius: 20px;
-    color: #2a2a2a;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute;
-    right: 40px;
+  padding: 10px 20px;
+  background: #ffffff;
+  border: none;
+  border-radius: 20px;
+  color: #2a2a2a;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
 }
 
 .hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: url('https://media.discordapp.net/attachments/1314726956893470811/1328415979524587560/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg?ex=67869f4a&is=67854dca&hm=1001943a814af03481122864f65b53422e222de3287e104285788db8026c6462&=&format=webp&width=1092&height=614') no-repeat center center;
-    background-size: cover;
-    color: #2a2a2a;
+  text-align: center;
+  padding: 100px 20px;
+  background: url("https://media.discordapp.net/attachments/1314726956893470811/1328415979524587560/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg?ex=67869f4a&is=67854dca&hm=1001943a814af03481122864f65b53422e222de3287e104285788db8026c6462&=&format=webp&width=1092&height=614")
+    no-repeat center center;
+  background-size: cover;
+  color: #2a2a2a;
 }
 
 .hero h1 {
-    font-size: 4em;
-    margin: 0;
+  font-size: 4em;
+  margin: 0;
 }
 
 .hero p {
-    font-size: 1.5em;
-    margin: 20px 0;
+  font-size: 1.5em;
+  margin: 20px 0;
 }
 
 .get-started-btn {
-    padding: 15px 30px;
-    background: #2a2a2a;
-    color: #ffffff;
-    border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
+  padding: 15px 30px;
+  background: #2a2a2a;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .features {
-    text-align: center;
-    padding: 50px 20px;
-    background: #ffe97f;
-    color: #2a2a2a;
+  text-align: center;
+  padding: 50px 20px;
+  background: #ffe97f;
+  color: #2a2a2a;
 }
 
 .features h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
+  font-size: 2.5em;
+  margin-bottom: 30px;
 }
 
 .feature-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .feature-item {
-    width: 150px;
-    padding: 20px;
-    background: #ffcc33;
-    border-radius: 15px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  width: 150px;
+  padding: 20px;
+  background: #ffcc33;
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .slogan-section {
-    text-align: center;
-    padding: 50px 20px;
-    background: #2a2a2a;
-    color: #ffffff;
+  text-align: center;
+  padding: 50px 20px;
+  background: #2a2a2a;
+  color: #ffffff;
 }
 
 .slogan-content {
-    max-width: 600px;
-    margin: 0 auto;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .slogan-content h2 {
-    font-size: 3em;
-    margin-bottom: 20px;
+  font-size: 3em;
+  margin-bottom: 20px;
 }
 
 .slogan-content p {
-    font-size: 1.5em;
-    margin-bottom: 30px;
+  font-size: 1.5em;
+  margin-bottom: 30px;
 }
 
 .invite-btn {
-    padding: 15px 30px;
-    background: #ffffff;
-    color: #2a2a2a;
-    border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
+  padding: 15px 30px;
+  background: #ffffff;
+  color: #2a2a2a;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #2a2a2a;
-    color: #f7f7f7;
-    margin-top: auto; /* Push the footer to the bottom */
+  text-align: center;
+  padding: 20px;
+  background: #2a2a2a;
+  color: #f7f7f7;
+  margin-top: auto; /* Push the footer to the bottom */
+}
+
+/* Feedback Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  color: #f7f7f7;
+  z-index: 1001;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.feedback-text {
+  width: 80%;
+  height: 80px;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #3a3a3a;
+  color: #fff;
+  resize: none;
+}
+
+.stars img {
+  width: 30px;
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+  margin: 5px;
+}
+
+.stars img.selected {
+  filter: grayscale(0%);
+}
+
+.error-text {
+  color: red;
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  background: #ffffff;
+  color: #2a2a2a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Modal Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Show Modal */
+.show-modal {
+  display: block;
 }
 
 /* Media Queries for larger screens */
 @media (min-width: 768px) {
-    .hero {
-        padding: 150px 20px;
-    }
+  .hero {
+    padding: 150px 20px;
+  }
 
-    .hero h1 {
-        font-size: 5em;
-    }
+  .hero h1 {
+    font-size: 5em;
+  }
 
-    .hero p {
-        font-size: 2em;
-    }
+  .hero p {
+    font-size: 2em;
+  }
 
-    .get-started-btn {
-        padding: 20px 40px;
-        font-size: 1.2em;
-    }
+  .get-started-btn {
+    padding: 20px 40px;
+    font-size: 1.2em;
+  }
 
-    .features h2 {
-        font-size: 3em;
-    }
+  .features h2 {
+    font-size: 3em;
+  }
 
-    .feature-item {
-        width: 200px;
-        padding: 30px;
-    }
+  .feature-item {
+    width: 200px;
+    padding: 30px;
+  }
 
-    .slogan-content h2 {
-        font-size: 3.5em;
-    }
+  .slogan-content h2 {
+    font-size: 3.5em;
+  }
 
-    .slogan-content p {
-        font-size: 2em;
-    }
+  .slogan-content p {
+    font-size: 2em;
+  }
 }
 
 @media (min-width: 1024px) {
-    header {
-        padding: 20px 80px;
-    }
+  header {
+    padding: 20px 80px;
+  }
 
-    .hero {
-        padding: 200px 20px;
-    }
+  .hero {
+    padding: 200px 20px;
+  }
 
-    .hero h1 {
-        font-size: 6em;
-    }
+  .hero h1 {
+    font-size: 6em;
+  }
 
-    .hero p {
-        font-size: 2.5em;
-    }
+  .hero p {
+    font-size: 2.5em;
+  }
 
-    .get-started-btn {
-        padding: 25px 50px;
-        font-size: 1.5em;
-    }
+  .get-started-btn {
+    padding: 25px 50px;
+    font-size: 1.5em;
+  }
 
-    .features h2 {
-        font-size: 3.5em;
-    }
+  .features h2 {
+    font-size: 3.5em;
+  }
 
-    .feature-item {
-        width: 250px;
-        padding: 40px;
-    }
+  .feature-item {
+    width: 250px;
+    padding: 40px;
+  }
 
-    .slogan-content h2 {
-        font-size: 4em;
-    }
+  .slogan-content h2 {
+    font-size: 4em;
+  }
 
-    .slogan-content p {
-        font-size: 2.5em;
-    }
+  .slogan-content p {
+    font-size: 2.5em;
+  }
 }
 
 /* Mobile-friendly styles for screens smaller than 768px */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 10px 20px;
-        text-align: center;
-    }
+  header {
+    flex-direction: column;
+    padding: 10px 20px;
+    text-align: center;
+  }
 
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
 
-    .hero {
-        padding: 50px 10px;
-    }
+  .hero {
+    padding: 50px 10px;
+  }
 
-    .hero h1 {
-        font-size: 3em;
-    }
+  .hero h1 {
+    font-size: 3em;
+  }
 
-    .hero p {
-        font-size: 1em;
-    }
+  .hero p {
+    font-size: 1em;
+  }
 
-    .get-started-btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
+  .get-started-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
 
-    .features {
-        padding: 30px 10px;
-    }
+  .features {
+    padding: 30px 10px;
+  }
 
-    .features h2 {
-        font-size: 2em;
-    }
+  .features h2 {
+    font-size: 2em;
+  }
 
-    .feature-item {
-        width: 100%;
-        padding: 15px;
-    }
+  .feature-item {
+    width: 100%;
+    padding: 15px;
+  }
 
-    .slogan-content h2 {
-        font-size: 2.5em;
-    }
+  .slogan-content h2 {
+    font-size: 2.5em;
+  }
 
-    .slogan-content p {
-        font-size: 1.2em;
-    }
+  .slogan-content p {
+    font-size: 1.2em;
+  }
 
-    .invite-btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
+  .invite-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
 
-    footer {
-        padding: 10px 20px;
-    }
+  footer {
+    padding: 10px 20px;
+  }
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.footer-left, .footer-right {
-    font-weight: bold;
-    cursor: pointer;
-    color: #f7f7f7;
+.footer-left,
+.footer-right {
+  font-weight: bold;
+  cursor: pointer;
+  color: #f7f7f7;
 }
 
-.footer-left:hover, .footer-right:hover {
-    text-decoration: underline;
+.footer-left:hover,
+.footer-right:hover {
+  text-decoration: underline;
 }
