@@ -1,69 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honeycomb Discord Bot</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/style.css" />
-  </head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
     <header>
-      <div class="logo">Honeycomb</div>
-      <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Invite</a>
-        <a href="https://ko-fi.com/honeycombbot" target="_blank">Donate</a>
-        <a href="#">Support</a>
-      </nav>
-      <button class="login-btn">Login</button>
+        <div class="logo">Honeycomb</div>
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Invite</a>
+            <a href="https://ko-fi.com/honeycombbot" target="_blank">Donate</a>
+            <a href="#">Support</a>
+        </nav>
+        <button class="login-btn" id="login-btn">Login</button>
     </header>
 
     <div class="hero">
-      <h1>Honeycomb</h1>
-      <p>Your way of utilizing.</p>
-      <button class="get-started-btn">Get Started</button>
+        <h1>Honeycomb</h1>
+        <p>Your way of utilizing.</p>
+        <button class="get-started-btn">Get Started</button>
     </div>
 
     <section class="features">
-      <h2>Features</h2>
-      <div class="feature-grid">
-        <div class="feature-item">Logging</div>
-        <div class="feature-item">Manage Roles</div>
-        <div class="feature-item">Custom Commands</div>
-        <div class="feature-item">Easy Use</div>
-        <div class="feature-item">More</div>
-      </div>
+        <h2>Features</h2>
+        <div class="feature-grid">
+            <div class="feature-item">Logging</div>
+            <div class="feature-item">Manage Roles</div>
+            <div class="feature-item">Custom Commands</div>
+            <div class="feature-item">Easy Use</div>
+            <div class="feature-item">More</div>
+        </div>
     </section>
 
     <div class="slogan-section">
-      <div class="slogan-content">
-        <h2>Honeycomb.</h2>
-        <p>
-          Your ultimate utility bot for managing your Discord server with ease.
-        </p>
-        <button class="invite-btn">Invite Honeycomb</button>
-      </div>
+        <div class="slogan-content">
+            <h2>Honeycomb.</h2>
+            <p>Your ultimate utility bot for managing your Discord server with ease.</p>
+            <button class="invite-btn">Invite Honeycomb</button>
+        </div>
     </div>
 
     <footer>
-      <div class="footer-content">
-        <span class="footer-left" id="open-feedback">Feedback</span>
-        <p>&copy; 2025 Honeycomb. All rights reserved.</p>
-        <span class="footer-right">
-          <a
-            href="YOUR_TOPGG_LINK_HERE"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="color: inherit; text-decoration: none"
-            >Top.gg</a
-          >
-        </span>
-      </div>
+        <div class="footer-content">
+            <span class="footer-left">Feedback</span>
+            <p class="footer-center">&copy; 2025 Honeycomb. All rights reserved.</p>
+            <span class="footer-right">
+                <a href="YOUR_TOPGG_LINK_HERE" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Top.gg</a>
+            </span>
+        </div>
     </footer>
+
+    <script>
+        document.getElementById('login-btn').addEventListener('click', function() {
+            window.location.href = 'https://discord.com/oauth2/authorize?client_id=1328128686649643028&response_type=code&redirect_uri=https%3A%2F%2Fhoneycombbot.xyz&scope=identify+guilds+applications.commands.permissions.update';
+        });
+
+        // Function to get query parameters from URL
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substring(1).split("&").forEach(param => {
+                const [key, value] = param.split("=");
+                params[key] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        // Function to fetch user profile using the access token
+        async function fetchUserProfile(accessToken) {
+            const response = await fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            });
+            return response.json();
+        }
+
+        // Function to handle login and update the button
+        async function handleLogin() {
+            const params = getQueryParams();
+            if (params.code) {
+                // Exchange the authorization code for an access token
+                const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        client_id: '1328128686649643028',
+                        client_secret: 'YOUR_CLIENT_SECRET',
+                        grant_type: 'authorization_code',
+                        code: params.code,
+                        redirect_uri: 'https://honeycombbot.xyz'
+                    })
+                });
+                const tokenData = await tokenResponse.json();
+                const userProfile = await fetchUserProfile(tokenData.access_token);
+
+                // Update the login button with the user's profile picture
+                const loginBtn = document.getElementById('login-btn');
+                loginBtn.style.backgroundImage = `url(${userProfile.avatar ? `https://cdn.discordapp.com/avatars/${userProfile.id}/${userProfile.avatar}.png` : 'https://cdn.discordapp.com/embed/avatars/0.png'})`;
+                loginBtn.style.backgroundSize = 'cover';
+                loginBtn.style.borderRadius = '50%';
+                loginBtn.style.width = '40px';
+                loginBtn.style.height = '40px';
+                loginBtn.textContent = '';
+            }
+        }
+
+        // Call handleLogin to check if the user has logged in
+        handleLogin();
+    </script>
+</body>
+</html>
 
     <!-- Feedback Modal -->
     <div id="feedback-modal" class="modal">
