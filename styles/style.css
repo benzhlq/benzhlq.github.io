@@ -75,8 +75,7 @@ nav a {
 .hero {
   text-align: center;
   padding: 100px 20px;
-  background: url("https://media.discordapp.net/attachments/1314726956893470811/1328415979524587560/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg?ex=67869f4a&is=67854dca&hm=1001943a814af03481122864f65b53422e222de3287e104285788db8026c6462&=&format=webp&width=1092&height=614")
-    no-repeat center center;
+  background: url("../images/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg") no-repeat center center;
   background-size: cover;
   color: #2a2a2a;
 }
