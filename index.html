@@ -56,7 +56,9 @@
 
     <script>
         document.getElementById('login-btn').addEventListener('click', function() {
-            window.location.href = 'https://discord.com/oauth2/authorize?client_id=1328128686649643028&response_type=code&redirect_uri=https%3A%2F%2Fhoneycombbot.xyz&scope=identify+guilds+applications.commands.permissions.update';
+            if (!localStorage.getItem('loggedIn')) {
+                window.location.href = 'https://discord.com/oauth2/authorize?client_id=1328128686649643028&response_type=code&redirect_uri=https%3A%2F%2Fhoneycombbot.xyz&scope=identify+guilds+applications.commands.permissions.update';
+            }
         });
 
         // Function to get query parameters from URL
@@ -91,7 +93,7 @@
                     },
                     body: new URLSearchParams({
                         client_id: '1328128686649643028',
-                        client_secret: 'CnTDYhtd5AwPppOJkj4x0zpNXu0gDk-o',
+                        client_secret: 'YOUR_CLIENT_SECRET',
                         grant_type: 'authorization_code',
                         code: params.code,
                         redirect_uri: 'https://honeycombbot.xyz'
@@ -101,6 +103,17 @@
                 const userProfile = await fetchUserProfile(tokenData.access_token);
 
                 // Update the login button with the user's profile picture
+                const loginBtn = document.getElementById('login-btn');
+                loginBtn.style.backgroundImage = `url(${userProfile.avatar ? `https://cdn.discordapp.com/avatars/${userProfile.id}/${userProfile.avatar}.png` : 'https://cdn.discordapp.com/embed/avatars/0.png'})`;
+                loginBtn.style.backgroundSize = 'cover';
+                loginBtn.style.borderRadius = '50%';
+                loginBtn.style.width = '40px';
+                loginBtn.style.height = '40px';
+                loginBtn.textContent = '';
+                localStorage.setItem('loggedIn', true);
+                localStorage.setItem('userProfile', JSON.stringify(userProfile));
+            } else if (localStorage.getItem('loggedIn')) {
+                const userProfile = JSON.parse(localStorage.getItem('userProfile'));
                 const loginBtn = document.getElementById('login-btn');
                 loginBtn.style.backgroundImage = `url(${userProfile.avatar ? `https://cdn.discordapp.com/avatars/${userProfile.id}/${userProfile.avatar}.png` : 'https://cdn.discordapp.com/embed/avatars/0.png'})`;
                 loginBtn.style.backgroundSize = 'cover';
