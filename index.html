@@ -12,15 +12,17 @@
   </head>
   <body>
     <header>
+      <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
       <div class="logo">Honeycomb</div>
-      <nav>
+      <nav class="dropdown">
         <a href="#">Dashboard</a>
         <a href="#">Invite</a>
         <a href="https://ko-fi.com/honeycombbot" target="_blank">Donate</a>
         <a href="#">Support</a>
+        <a href="#" class="login-btn">Login</a>
       </nav>
-      <button class="login-btn">Login</button>
     </header>
+    
 
     <div class="hero">
       <h1>Honeycomb</h1>
@@ -95,17 +97,17 @@
         document.getElementById("modal-overlay").style.display = "block";
         document.getElementById("feedback-modal").style.display = "block";
       });
-
+    
       // Close feedback modal when clicking on overlay
       document.getElementById("modal-overlay").addEventListener("click", () => {
         document.getElementById("modal-overlay").style.display = "none";
         document.getElementById("feedback-modal").style.display = "none";
       });
-
+    
       // Star selection logic
       const stars = document.querySelectorAll(".star");
       let selectedStars = 0;
-
+    
       stars.forEach((star) => {
         star.addEventListener("click", () => {
           selectedStars = star.getAttribute("data-value");
@@ -115,7 +117,7 @@
           }
         });
       });
-
+    
       // Submit feedback
       document
         .getElementById("submit-feedback")
@@ -134,6 +136,14 @@
             document.getElementById("feedback-modal").style.display = "none";
           }
         });
-    </script>
+    
+      // Hamburger menu toggle logic
+      const menuToggle = document.querySelector(".menu-toggle");
+      const dropdown = document.querySelector(".dropdown");
+    
+      menuToggle.addEventListener("click", () => {
+        dropdown.classList.toggle("active");
+      });
+    </script>    
   </body>
 </html>
