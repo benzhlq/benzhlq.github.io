@@ -70,7 +70,6 @@ nav a {
   background-size: cover;
   color: #2a2a2a;
 }
-
 .hero h1 {
   font-size: 4em;
   margin: 0;
@@ -324,46 +323,9 @@ footer {
     text-align: center;
   }
 
-  nav,
-  .login-btn {
-    display: none; /* Hide the navigation links and login button on mobile */
-  }
-
-  .menu-toggle {
-    display: block; /* Show the hamburger menu */
-    font-size: 1.5rem;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    align-self: flex-start;
-  }
-
-  .dropdown {
-    display: none; /* Initially hidden */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #222; /* Match your theme */
-    width: 100%;
-    padding: 10px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-
-  .dropdown a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-  }
-
-  .dropdown a:hover {
-    background-color: #333;
-  }
-
-  .dropdown.active {
-    display: flex; /* Show the dropdown when active */
+  nav a {
+    display: block;
+    margin: 10px 0;
   }
 
   .hero {
@@ -412,42 +374,6 @@ footer {
   footer {
     padding: 10px 20px;
   }
-}
-
-/* General hamburger menu and dropdown styles */
-.menu-toggle {
-  font-size: 1.5rem;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none; /* Hidden by default, shown in media query */
-}
-
-.dropdown {
-  display: none; /* Hidden by default */
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  background-color: #222;
-  width: 100%;
-  padding: 10px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-}
-
-.dropdown a:hover {
-  background-color: #333;
-}
-
-.dropdown.active {
-  display: flex;
 }
 
 .footer-content {
