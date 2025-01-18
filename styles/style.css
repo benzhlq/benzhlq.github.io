@@ -24,7 +24,7 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   padding: 20px 40px;
   background: #2a2a2a;
@@ -33,11 +33,16 @@ header {
 }
 
 header .logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  position: absolute;
-  left: 40px;
+	font-size: 1.5em;
+	font-weight: bold;
+	display: flex;
+	position: absolute;
+	left: 50%; /* Move to the middle of the parent */
+	top: 16px; /* Keep the vertical position as it is */
+	height: 30px;
+	transform: translateX(-50%); /* Offset by half of its own width */
 }
+
 
 nav {
   display: flex;
@@ -52,15 +57,16 @@ nav a {
 }
 
 .login-btn {
-  padding: 10px 20px;
-  background: #ffffff;
-  border: none;
-  border-radius: 20px;
-  color: #2a2a2a;
-  font-weight: bold;
-  cursor: pointer;
-  position: absolute;
-  right: 40px;
+	padding: 10px 20px;
+	background: #ffffff;
+	border: none;
+	border-radius: 20px;
+	color: #2a2a2a;
+	font-weight: bold;
+	cursor: pointer;
+	position: absolute;
+	right: 18px;
+	top: 10px;
 }
 
 .hero {
@@ -71,11 +77,13 @@ nav a {
   color: #2a2a2a;
 }
 .hero h1 {
+	position: center; 
   font-size: 4em;
   margin: 0;
 }
 
 .hero p {
+	position: center;
   font-size: 1.5em;
   margin: 20px 0;
 }
@@ -84,6 +92,7 @@ nav a {
   padding: 15px 30px;
   background: #2a2a2a;
   color: #ffffff;
+	position: center;
   border: none;
   border-radius: 25px;
   font-size: 1em;
@@ -120,7 +129,7 @@ nav a {
 }
 
 .slogan-section {
-  text-align: center;
+  text-align: center; /* Centers text content */
   padding: 50px 20px;
   background: #2a2a2a;
   color: #ffffff;
@@ -128,18 +137,21 @@ nav a {
 
 .slogan-content {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centers the container */
 }
 
 .slogan-content h2 {
   font-size: 3em;
   margin-bottom: 20px;
+  text-align: center; /* Optional, ensures text alignment */
 }
 
 .slogan-content p {
   font-size: 1.5em;
   margin-bottom: 30px;
+  text-align: center; /* Optional, ensures text alignment */
 }
+
 
 .invite-btn {
   padding: 15px 30px;
@@ -151,13 +163,25 @@ nav a {
   cursor: pointer;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body takes the full height of the viewport */
+  margin: 0; /* Removes default margin */
+}
+
+.content {
+  flex: 1; /* Pushes the footer to the bottom when content is short */
+}
+
 footer {
   text-align: center;
   padding: 20px;
   background: #2a2a2a;
   color: #f7f7f7;
-  margin-top: auto; /* Push the footer to the bottom */
+  margin-top: auto; /* Ensures footer stays at the bottom */
 }
+
 
 /* Feedback Modal Styles */
 .modal {
