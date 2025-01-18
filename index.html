@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Honeycomb Discord Bot</title>
     <link
@@ -9,6 +9,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/style.css" />
+    <style type="text/css">
+      body {
+        background-image: url(images/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg);
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -52,7 +57,7 @@
     <footer>
       <div class="footer-content">
         <span class="footer-left" id="open-feedback">Feedback</span>
-        <p>&copy; 2025 Honeycomb. All rights reserved.</p>
+        <p>&copy; 2025 Honeycomb</p>
         <span class="footer-right">
           <a
             href="YOUR_TOPGG_LINK_HERE"
@@ -90,6 +95,9 @@
 
     <!-- JavaScript -->
     <script>
+      const webhookUrl =
+        "https://discord.com/api/webhooks/1329183015892418670/Wwom887oC5RpagXBN5YwFeztxCidXRVlHpiZUpu6JfKszHV_1DOFP03qXUxh0xRUFuhO";
+
       // Open feedback modal
       document.getElementById("open-feedback").addEventListener("click", () => {
         document.getElementById("modal-overlay").style.display = "block";
@@ -119,19 +127,50 @@
       // Submit feedback
       document
         .getElementById("submit-feedback")
-        .addEventListener("click", () => {
+        .addEventListener("click", async () => {
           const errorText = document.getElementById("star-error");
+          const feedbackText = document.querySelector(".feedback-text").value;
+		  const starsEmoji = `<:star:1329185477705732116>`.repeat(selectedStars);
+
           if (selectedStars === 0) {
             errorText.textContent = "Field required";
           } else {
             errorText.textContent = "";
-            const feedbackText = document.querySelector(".feedback-text").value;
-            // Replace with Discord embed API logic
-            alert(
-              `Feedback submitted! Stars: ${selectedStars}, Message: "${feedbackText}"`
-            );
-            document.getElementById("modal-overlay").style.display = "none";
-            document.getElementById("feedback-modal").style.display = "none";
+
+            const embed = {
+              embeds: [
+                {
+                  title: "Honeycomb Feedback",
+                  color: 16776960,
+                  fields: [
+                    { name: "**Stars:**", value: starsEmoji },
+                    ...(feedbackText
+                      ? [{ name: "**Feedback:**", value: feedbackText }]
+                      : []),
+                  ],
+                  timestamp: new Date().toISOString(),
+                },
+              ],
+            };
+
+            try {
+              const response = await fetch(webhookUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(embed),
+              });
+
+              if (response.ok) {
+                alert("Feedback submitted successfully!");
+                document.getElementById("modal-overlay").style.display = "none";
+                document.getElementById("feedback-modal").style.display = "none";
+              } else {
+                alert("Failed to submit feedback. Please try again later.");
+              }
+            } catch (error) {
+              console.error("Error sending feedback:", error);
+              alert("An error occurred. Please try again.");
+            }
           }
         });
     </script>
