@@ -327,7 +327,6 @@ footer {
   }
 }
 
-/* Mobile-friendly styles for screens smaller than 768px */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -335,58 +334,27 @@ footer {
     text-align: center;
   }
 
+  nav {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center the navigation links */
+    gap: 10px; /* Add spacing between links */
+    margin-top: 10px; /* Add spacing from the header content */
+  }
+
   nav a {
     display: block;
-    margin: 10px 0;
+    margin: 0; /* Reset margin to avoid extra spacing */
+    padding: 10px 0; /* Add padding for better touch targets */
+    text-align: center; /* Center align text */
+    width: 100%; /* Optional: make links span the width */
   }
 
-  .hero {
-    padding: 50px 10px;
-  }
-
-  .hero h1 {
-    font-size: 3em;
-  }
-
-  .hero p {
-    font-size: 1em;
-  }
-
-  .get-started-btn {
-    padding: 10px 20px;
-    font-size: 0.9em;
-  }
-
-  .features {
-    padding: 30px 10px;
-  }
-
-  .features h2 {
-    font-size: 2em;
-  }
-
-  .feature-item {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .slogan-content h2 {
-    font-size: 2.5em;
-  }
-
-  .slogan-content p {
-    font-size: 1.2em;
-  }
-
-  .invite-btn {
-    padding: 10px 20px;
-    font-size: 0.9em;
-  }
-
-  footer {
-    padding: 10px 20px;
+  .login-btn {
+    margin-top: 10px; /* Add spacing between the login button and nav */
   }
 }
+
 
 .footer-content {
   display: flex;
