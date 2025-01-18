@@ -32,18 +32,6 @@ header {
   position: relative;
 }
 
-header .logo {
-	font-size: 1.5em;
-	font-weight: bold;
-	display: flex;
-	position: absolute;
-	left: 50%; /* Move to the middle of the parent */
-	top: 16px; /* Keep the vertical position as it is */
-	height: 30px;
-	transform: translateX(-50%); /* Offset by half of its own width */
-}
-
-
 nav {
   display: flex;
   justify-content: center;
