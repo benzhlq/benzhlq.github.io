@@ -64,7 +64,7 @@ nav a {
 	color: #2a2a2a;
 	font-weight: bold;
 	cursor: pointer;
-	position: absolute;
+	position: right;
 	right: 18px;
 	top: 10px;
 }
