@@ -1,7 +1,7 @@
 {
   "name": "honeycomb-website",
   "version": "1.0.0",
-  "description": "This project is a simple HTML website for a Discord bot called Honeycomb. It features a gradient background and serves as a basic template for further development.",
+  "description": "Honeycomb Bot",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
