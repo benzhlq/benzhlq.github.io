@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.imgur.com/AUBIaCw.png" alt="Honeycomb Bot Banner">
+  <img src="[https://i.imgur.com/AUBIaCw.png" alt="Honeycomb Bot Banner](https://imgur.com/sXk53w2)">
 </p>
 
 <table>
@@ -78,5 +78,5 @@ Sean
 ---
 
 <p align="center">
-  <img src="https://i.imgur.com/O8R44vR.png" alt="Honeycomb Footer Logo" width="120">
+  <img src="[https://i.imgur.com/O8R44vR.png" alt="Honeycomb Footer Logo" width="120](https://imgur.com/Y05CK2d)">
 </p>
