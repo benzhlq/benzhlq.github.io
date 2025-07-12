@@ -78,5 +78,5 @@ Sean
 ---
 
 <p align="center">
-  <img src="https://i.imgur.com/Y05CK2d.png" alt="Honeycomb Footer Logo" width="120">
+  <img src="https://i.imgur.com/Y05CK2d.png" alt="Honeycomb Footer Banner">
 </p>
