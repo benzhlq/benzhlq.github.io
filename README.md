@@ -27,7 +27,7 @@ Built with simplicity and structure in mind, it delivers everything you need wit
 ### Why Honeycomb?
 
 > **Quick & Easy Setup**  
-No installation, no hosting, no config files. Just invite and go.
+No advanced installation, a few easy buttons and its ready to go!
 
 > **Designed for Roleplay**  
 From shift tracking to structured moderation, every feature is built around real ERLC needs.
