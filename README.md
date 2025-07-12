@@ -18,7 +18,7 @@
 Honeycomb Bot is a high-performance Discord bot tailored for Emergency Response: Liberty County (ERLC) roleplay communities.  
 Built with simplicity and structure in mind, it delivers everything you need without the clutter or confusing setup found in other bots.
 
-> Built specifically for ERLC servers — no bloated features, no unnecessary configs.  
+> Built specifically for ERLC servers, no bloated features, no unnecessary configs.  
 > Invite the bot, assign roles, and you're ready to run.  
 > No self-hosting, no command spam, just clean slash commands and reliable functionality.
 
