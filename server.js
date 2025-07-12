@@ -7,7 +7,6 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
-// Serve static files from the root directory
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
