@@ -5,7 +5,7 @@
 <table>
   <tr>
     <td width="100" align="center">
-      <img src="https://i.imgur.com/O8R44vR.png" width="80" alt="Honeycomb Logo">
+      <img src="[https://i.imgur.com/O8R44vR.png" width="80" alt="Honeycomb Logo](https://imgur.com/X57Ufqx)">
     </td>
     <td>
       <h1>Honeycomb Bot</h1>
