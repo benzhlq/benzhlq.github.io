@@ -54,7 +54,7 @@ Invite Honeycomb Bot to your server in seconds:
 
 > [**honeycombbot.xyz**](https://honeycombbot.xyz)
 
-No advanced setup required — it's incredibly easy to use.
+No advanced setup required; it's incredibly easy to use.
 
 ---
 
