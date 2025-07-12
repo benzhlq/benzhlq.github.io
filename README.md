@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="[https://i.imgur.com/AUBIaCw.png" alt="Honeycomb Bot Banner](https://imgur.com/sXk53w2)">
+  <img src="https://i.imgur.com/sXk53w2.png" alt="Honeycomb Bot Banner">
 </p>
 
 <table>
   <tr>
     <td width="100" align="center">
-      <img src="[https://i.imgur.com/O8R44vR.png" width="80" alt="Honeycomb Logo](https://imgur.com/X57Ufqx)">
+      <img src="https://i.imgur.com/X57Ufqx.png" width="80" alt="Honeycomb Logo">
     </td>
     <td>
       <h1>Honeycomb Bot</h1>
@@ -54,7 +54,7 @@ Invite Honeycomb Bot to your server in seconds:
 
 > [**honeycombbot.xyz**](https://honeycombbot.xyz)
 
-No advanced setup required, it's incredibly easy to setup.
+No advanced setup required — it's incredibly easy to use.
 
 ---
 
@@ -62,7 +62,7 @@ No advanced setup required, it's incredibly easy to setup.
 
 Need help or have a suggestion?
 
-> Visit the support server [here!](https://discord.gg/zuSTsjdPPt)
+> Visit the support server [here](https://discord.gg/zuSTsjdPPt)
 
 ---
 
@@ -78,5 +78,5 @@ Sean
 ---
 
 <p align="center">
-  <img src="[https://i.imgur.com/O8R44vR.png" alt="Honeycomb Footer Logo" width="120](https://imgur.com/Y05CK2d)">
+  <img src="https://i.imgur.com/Y05CK2d.png" alt="Honeycomb Footer Logo" width="120">
 </p>
