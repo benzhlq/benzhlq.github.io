@@ -11,14 +11,18 @@ app.get('/', (req, res) => {
   const htmlPath = path.join(__dirname, 'index.html');
   let html = fs.readFileSync(htmlPath, 'utf8');
   
-  // Get webhook URL from environment (GitHub secrets)
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL || '';
   console.log('Webhook URL available:', !!webhookUrl);
   
-  // Replace placeholder with actual webhook URL
   html = html.replace('{{DISCORD_WEBHOOK_URL}}', webhookUrl);
   
   res.send(html);
+});
+
+app.get('/api/config', (req, res) => {
+  res.json({ 
+    webhookUrl: process.env.DISCORD_WEBHOOK_URL || null 
+  });
 });
 
 app.listen(port, () => {
