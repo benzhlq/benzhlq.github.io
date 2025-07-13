@@ -70,6 +70,7 @@ Need help or have a suggestion?
 
 **Author**  
 Ben
+Fynn
 
 **Contributors**  
 v8mods  
