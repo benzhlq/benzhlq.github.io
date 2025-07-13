@@ -39,7 +39,7 @@ Unlike generic moderation bots, Honeycomb is built with ERLC in mind. Meaning co
 
 ### Features
 
-- Role-restricted moderation tools (e.g. purge, warn)
+- Default permission restricted commands (e.g purge)
 - Shift system to track on-duty staff or departments
 - Command locking and structured usage
 - Utility commands designed for ERLC roleplay
