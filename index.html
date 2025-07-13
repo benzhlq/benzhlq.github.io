@@ -93,24 +93,7 @@
     <div id="modal-overlay" class="overlay"></div>
 
     <script>
-      let webhookUrl;
-
-      // Fetch webhook URL from the same domain
-      fetch('/config')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          webhookUrl = data.webhookUrl;
-          console.log('Webhook URL loaded:', !!webhookUrl);
-        })
-        .catch(error => {
-          console.error("Error fetching config:", error);
-          // Fallback - you could set a default webhook URL here if needed
-        });
+      const webhookUrl = '{{DISCORD_WEBHOOK_URL}}';
 
       document.getElementById("open-feedback").addEventListener("click", () => {
         document.getElementById("modal-overlay").style.display = "block";
@@ -138,20 +121,34 @@
       document.getElementById("submit-feedback").addEventListener("click", async () => {
         const errorText = document.getElementById("star-error");
         const feedbackText = document.querySelector(".feedback-text").value;
+        const starsEmoji = "⭐".repeat(selectedStars);
 
         if (selectedStars === 0) {
           errorText.textContent = "Field required";
         } else {
           errorText.textContent = "";
 
+          const embed = {
+            embeds: [
+              {
+                title: "Feedback",
+                description: `**Stars:** ${starsEmoji}\n\n**Message:** ${feedbackText || "N/A"}`,
+                color: 16776960,
+                timestamp: new Date().toISOString(),
+              },
+            ],
+          };
+
+          if (!webhookUrl) {
+            alert("Failed to submit feedback. Please try again later.");
+            return;
+          }
+
           try {
-            const response = await fetch('/submit-feedback', {
+            const response = await fetch(webhookUrl, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                stars: selectedStars,
-                message: feedbackText
-              }),
+              body: JSON.stringify(embed),
             });
 
             if (response.ok) {
