@@ -95,7 +95,7 @@
     <script>
       let webhookUrl;
 
-      fetch('https://honeycombbot.xyz/config')
+      fetch('/config')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -135,22 +135,19 @@
       document.getElementById("submit-feedback").addEventListener("click", async () => {
         const errorText = document.getElementById("star-error");
         const feedbackText = document.querySelector(".feedback-text").value;
-        const starsEmoji = `<:star:1329185477705732116>`.repeat(selectedStars);
+        const starsEmoji = "⭐".repeat(selectedStars);
 
         if (selectedStars === 0) {
           errorText.textContent = "Field required";
         } else {
           errorText.textContent = "";
 
+          // Create Discord embed
           const embed = {
             embeds: [
               {
-                title: "Honeycomb Feedback",
-                color: 16776960,
-                fields: [
-                  { name: "**Stars:**", value: starsEmoji },
-                  ...(feedbackText ? [{ name: "**Feedback:**", value: feedbackText }] : []),
-                ],
+                title: "Feedback",
+                description: `**Stars:** ${starsEmoji}\n\n**Message:** ${feedbackText || "N/A"}`,
                 timestamp: new Date().toISOString(),
               },
             ],
@@ -172,6 +169,10 @@
               alert("Feedback submitted successfully!");
               document.getElementById("modal-overlay").style.display = "none";
               document.getElementById("feedback-modal").style.display = "none";
+              // Reset form
+              selectedStars = 0;
+              document.querySelector(".feedback-text").value = "";
+              stars.forEach((s) => s.classList.remove("selected"));
             } else {
               const responseBody = await response.text();
               console.error("Failed to submit feedback:", response.status, responseBody);
