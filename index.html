@@ -95,7 +95,7 @@
     <script>
       let webhookUrl;
 
-      fetch('/config')
+      fetch('https://honeycombbot.xyz/config')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -142,12 +142,12 @@
         } else {
           errorText.textContent = "";
 
-          // Create Discord embed
           const embed = {
             embeds: [
               {
                 title: "Feedback",
                 description: `**Stars:** ${starsEmoji}\n\n**Message:** ${feedbackText || "N/A"}`,
+                color: 16776960,
                 timestamp: new Date().toISOString(),
               },
             ],
