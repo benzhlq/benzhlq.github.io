@@ -378,9 +378,10 @@ footer {
 }
 
 .user-menu {
-  position: relative;
+  position: absolute;
+  right: 18px;
+  top: 11px;
   display: inline-block;
-  margin-right: 18px;
 }
 
 .user-avatar {
