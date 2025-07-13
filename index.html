@@ -138,34 +138,20 @@
       document.getElementById("submit-feedback").addEventListener("click", async () => {
         const errorText = document.getElementById("star-error");
         const feedbackText = document.querySelector(".feedback-text").value;
-        const starsEmoji = "⭐".repeat(selectedStars);
 
         if (selectedStars === 0) {
           errorText.textContent = "Field required";
         } else {
           errorText.textContent = "";
 
-          const embed = {
-            embeds: [
-              {
-                title: "Feedback",
-                description: `**Stars:** ${starsEmoji}\n\n**Message:** ${feedbackText || "N/A"}`,
-                color: 16776960,
-                timestamp: new Date().toISOString(),
-              },
-            ],
-          };
-
-          if (!webhookUrl) {
-            alert("Failed to submit feedback. Please try again later.");
-            return;
-          }
-
           try {
-            const response = await fetch(webhookUrl, {
+            const response = await fetch('/submit-feedback', {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(embed),
+              body: JSON.stringify({
+                stars: selectedStars,
+                message: feedbackText
+              }),
             });
 
             if (response.ok) {
@@ -177,8 +163,6 @@
               document.querySelector(".feedback-text").value = "";
               stars.forEach((s) => s.classList.remove("selected"));
             } else {
-              const responseBody = await response.text();
-              console.error("Failed to submit feedback:", response.status, responseBody);
               alert("Failed to submit feedback. Please try again later.");
             }
           } catch (error) {
