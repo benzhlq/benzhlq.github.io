@@ -380,6 +380,7 @@ footer {
 .user-menu {
   position: relative;
   display: inline-block;
+  margin-left: auto;
 }
 
 .user-avatar {
