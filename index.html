@@ -228,7 +228,7 @@
 
         userMenu.querySelector('.user-avatar').addEventListener('click', () => {
           const dropdown = userMenu.querySelector('.dropdown');
-          dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+          dropdown.classList.toggle('show');
         });
       }
 

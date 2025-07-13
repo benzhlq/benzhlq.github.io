@@ -406,6 +406,10 @@ footer {
   border: 3px solid #f2bb09;
 }
 
+.dropdown.show {
+  display: block;
+}
+
 .dropdown button {
   background: #2c2c2c;
   border: none;
