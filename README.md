@@ -69,12 +69,12 @@ Need help or have a suggestion?
 ### Credits
 
 **Authors**  
-Ben
-Fynn
+> Ben
+> Fynn
 
 **Contributors**  
-v8mods  
-Sean
+> v8mods  
+> Sean
 
 ---
 
