@@ -93,10 +93,26 @@
     <div id="modal-overlay" class="overlay"></div>
 
     <script>
-      const webhookUrl = '{{DISCORD_WEBHOOK_URL}}';
-      
-      console.log('Raw webhook URL:', webhookUrl);
-      console.log('Is GitHub deployment?', webhookUrl !== '{{DISCORD_WEBHOOK_URL}}');
+      let webhookUrl = null;
+
+      // Fetch webhook URL from your server's API endpoint
+      async function loadWebhookUrl() {
+        try {
+          const response = await fetch('/api/config');
+          if (response.ok) {
+            const data = await response.json();
+            webhookUrl = data.webhookUrl;
+            console.log('Webhook URL loaded from server');
+          } else {
+            console.error('Failed to fetch webhook URL from server');
+          }
+        } catch (error) {
+          console.error('Error loading webhook URL:', error);
+        }
+      }
+
+      // Load webhook URL when page loads
+      loadWebhookUrl();
 
       document.getElementById("open-feedback").addEventListener("click", () => {
         document.getElementById("modal-overlay").style.display = "block";
@@ -142,10 +158,8 @@
             ],
           };
 
-          // Check if webhook URL is properly configured
-          if (!webhookUrl || webhookUrl === '{{DISCORD_WEBHOOK_URL}}' || webhookUrl.trim() === '') {
-            console.error('Webhook URL not configured - this is expected in local development');
-            alert("Feedback feature is only available on the live site.");
+          if (!webhookUrl) {
+            alert("Failed to submit feedback. Configuration not available.");
             return;
           }
 
@@ -156,8 +170,6 @@
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(embed),
             });
-
-            console.log('Response status:', response.status);
 
             if (response.ok) {
               alert("Feedback submitted successfully!");
