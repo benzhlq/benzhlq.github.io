@@ -30,7 +30,7 @@ Built with simplicity and structure in mind, it delivers everything you need wit
 No advanced installation, a few easy buttons and its ready to go!
 
 > **Designed for Roleplay**  
-From shift tracking to structured moderation, every feature is built around real ERLC needs.
+From shift tracking to structured in-game logging, every feature is built around real ERLC needs.
 
 > **Better Than Generic Bots**  
 Unlike generic bots, Honeycomb is built with ERLC in mind. Meaning commands and permissions actually fit your server's workflow.
