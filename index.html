@@ -225,14 +225,6 @@
         `;
 
         const loginBtn = document.querySelector('.login-btn');
-        const userMenu = document.createElement('div');
-        userMenu.className = 'user-menu';
-        userMenu.innerHTML = `
-          <img src="${avatarUrl}" alt="User Avatar" class="user-avatar">
-          <div class="dropdown">
-            <button onclick="logout()">Logout</button>
-          </div>
-        `;
 
         if (loginBtn && loginBtn.parentElement) {
           loginBtn.parentElement.replaceChild(userMenu, loginBtn);
