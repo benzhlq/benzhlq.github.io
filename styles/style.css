@@ -379,8 +379,6 @@ footer {
 
 .user-menu {
   position: relative;
-  right: 18px;
-  top: 11px;
   display: inline-block;
 }
 
@@ -396,15 +394,14 @@ footer {
 .dropdown {
   display: none;
   position: absolute;
-  right: 0;
   top: 100%;
+  right: 0; 
   background-color: #2c2c2c;
   min-width: 120px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   z-index: 9999;
   border-radius: 8px;
   padding: 6px;
-  border: 3px solid #f2bb09;
 }
 
 .dropdown.show {
