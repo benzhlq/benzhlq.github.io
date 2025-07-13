@@ -68,7 +68,7 @@ Need help or have a suggestion?
 
 ### Credits
 
-**Author**  
+**Authors**  
 Ben
 Fynn
 
