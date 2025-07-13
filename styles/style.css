@@ -6,6 +6,11 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  font-family: "Bricolage Grotesque", sans-serif;
+  box-sizing: border-box;
+  background: #ffe97f;
+  color: #fff;
 }
 
 .page-container {
@@ -16,10 +21,22 @@ body {
 
 /* Other styles remain the same */
 body {
-  font-family: "Bricolage Grotesque", sans-serif;
-  box-sizing: border-box;
-  background: #ffe97f;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body takes the full height of the viewport */
+  margin: 0; /* Removes default margin */
+}
+
+.content {
+  flex: 1; /* Pushes the footer to the bottom when content is short */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #2a2a2a;
+  color: #f7f7f7;
+  margin-top: auto; /* Ensures footer stays at the bottom */
 }
 
 header {
@@ -65,22 +82,20 @@ nav a {
   color: #2a2a2a;
 }
 .hero h1 {
-	position: center; 
   font-size: 4em;
   margin: 0;
 }
 
 .hero p {
-	position: center;
   font-size: 1.5em;
   margin: 20px 0;
+  color: #ffffff;
 }
 
 .get-started-btn {
   padding: 15px 30px;
   background: #2a2a2a;
   color: #ffffff;
-	position: center;
   border: none;
   border-radius: 25px;
   font-size: 1em;
