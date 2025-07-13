@@ -5,11 +5,6 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  font-family: "Bricolage Grotesque", sans-serif;
-  box-sizing: border-box;
-  background: #ffe97f;
-  color: #fff;
 }
 
 .page-container {
@@ -19,22 +14,10 @@ body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.content {
-  flex: 1;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #2a2a2a;
-  color: #f7f7f7;
-  margin-top: auto; /* Ensures footer stays at the bottom */
+  font-family: "Bricolage Grotesque", sans-serif;
+  box-sizing: border-box;
+  background: #ffe97f;
+  color: #fff;
 }
 
 header {
@@ -80,20 +63,22 @@ nav a {
   color: #2a2a2a;
 }
 .hero h1 {
+	position: center; 
   font-size: 4em;
   margin: 0;
 }
 
 .hero p {
+	position: center;
   font-size: 1.5em;
   margin: 20px 0;
-  color: #ffffff;
 }
 
 .get-started-btn {
   padding: 15px 30px;
   background: #2a2a2a;
   color: #ffffff;
+	position: center;
   border: none;
   border-radius: 25px;
   font-size: 1em;
@@ -130,7 +115,7 @@ nav a {
 }
 
 .slogan-section {
-  text-align: center; /* Centers text content */
+  text-align: center;
   padding: 50px 20px;
   background: #2a2a2a;
   color: #ffffff;
@@ -138,19 +123,19 @@ nav a {
 
 .slogan-content {
   max-width: 600px;
-  margin: 0 auto; /* Centers the container */
+  margin: 0 auto;
 }
 
 .slogan-content h2 {
   font-size: 3em;
   margin-bottom: 20px;
-  text-align: center; /* Optional, ensures text alignment */
+  text-align: center;
 }
 
 .slogan-content p {
   font-size: 1.5em;
   margin-bottom: 30px;
-  text-align: center; /* Optional, ensures text alignment */
+  text-align: center;
 }
 
 
@@ -167,12 +152,12 @@ nav a {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the body takes the full height of the viewport */
-  margin: 0; /* Removes default margin */
+  min-height: 100vh;
+  margin: 0;
 }
 
 .content {
-  flex: 1; /* Pushes the footer to the bottom when content is short */
+  flex: 1;
 }
 
 footer {
@@ -180,11 +165,10 @@ footer {
   padding: 20px;
   background: #2a2a2a;
   color: #f7f7f7;
-  margin-top: auto; /* Ensures footer stays at the bottom */
+  margin-top: auto;
 }
 
 
-/* Feedback Modal Styles */
 .modal {
   display: none;
   position: fixed;
@@ -246,7 +230,6 @@ footer {
   cursor: pointer;
 }
 
-/* Modal Overlay */
 .overlay {
   display: none;
   position: fixed;
@@ -258,12 +241,10 @@ footer {
   z-index: 1000;
 }
 
-/* Show Modal */
 .show-modal {
   display: block;
 }
 
-/* Media Queries for larger screens */
 @media (min-width: 768px) {
   .hero {
     padding: 150px 20px;
@@ -349,22 +330,22 @@ footer {
 
   nav {
     display: flex;
-    flex-direction: column; /* Stack links vertically */
-    align-items: center; /* Center the navigation links */
-    gap: 10px; /* Add spacing between links */
-    margin-top: 10px; /* Add spacing from the header content */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
   }
 
   nav a {
     display: block;
-    margin: 0; /* Reset margin to avoid extra spacing */
-    padding: 10px 0; /* Add padding for better touch targets */
-    text-align: center; /* Center align text */
-    width: 100%; /* Optional: make links span the width */
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
   }
 
   .login-btn {
-    margin-top: 10px; /* Add spacing between the login button and nav */
+    margin-top: 10px;
   }
 }
 
