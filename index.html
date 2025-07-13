@@ -188,7 +188,7 @@
 
       function getDiscordAuthURL() {
         const clientId = "1328128686649643028";
-        const redirectUri = encodeURIComponent("http://127.0.0.1:5500");
+        const redirectUri = encodeURIComponent("https://honeycombbot.xyz");
         const scope = "identify";
         return `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scope}`;
       }
