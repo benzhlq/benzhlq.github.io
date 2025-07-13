@@ -33,7 +33,7 @@ No advanced installation, a few easy buttons and its ready to go!
 From shift tracking to structured moderation, every feature is built around real ERLC needs.
 
 > **Better Than Generic Bots**  
-Unlike generic moderation bots, Honeycomb is built with ERLC in mind. Meaning commands and permissions actually fit your server's workflow.
+Unlike generic bots, Honeycomb is built with ERLC in mind. Meaning commands and permissions actually fit your server's workflow.
 
 ---
 
