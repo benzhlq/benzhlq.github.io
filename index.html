@@ -224,7 +224,7 @@
           </div>
         `;
 
-        loginBtn.replaceWith(userMenu);
+        loginBtn.parentElement.replaceWith(userMenu);
 
         userMenu.querySelector('.user-avatar').addEventListener('click', () => {
           const dropdown = userMenu.querySelector('.dropdown');
