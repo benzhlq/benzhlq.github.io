@@ -95,18 +95,21 @@
     <script>
       let webhookUrl;
 
-      fetch('https://honeycombbot.xyz/config')
+      // Fetch webhook URL from the same domain
+      fetch('/config')
         .then(response => {
           if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
           return response.json();
         })
         .then(data => {
           webhookUrl = data.webhookUrl;
+          console.log('Webhook URL loaded:', !!webhookUrl);
         })
         .catch(error => {
           console.error("Error fetching config:", error);
+          // Fallback - you could set a default webhook URL here if needed
         });
 
       document.getElementById("open-feedback").addEventListener("click", () => {
