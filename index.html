@@ -94,6 +94,9 @@
 
     <script>
       const webhookUrl = '{{DISCORD_WEBHOOK_URL}}';
+      
+      console.log('Webhook URL:', webhookUrl);
+      console.log('Is placeholder?', webhookUrl === '{{DISCORD_WEBHOOK_URL}}');
 
       document.getElementById("open-feedback").addEventListener("click", () => {
         document.getElementById("modal-overlay").style.display = "block";
@@ -139,17 +142,21 @@
             ],
           };
 
-          if (!webhookUrl) {
-            alert("Failed to submit feedback. Please try again later.");
+          if (!webhookUrl || webhookUrl === '{{DISCORD_WEBHOOK_URL}}') {
+            console.error('Webhook URL not configured properly');
+            alert("Failed to submit feedback. Server configuration error.");
             return;
           }
 
           try {
+            console.log('Sending feedback...');
             const response = await fetch(webhookUrl, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(embed),
             });
+
+            console.log('Response status:', response.status);
 
             if (response.ok) {
               alert("Feedback submitted successfully!");
@@ -160,6 +167,8 @@
               document.querySelector(".feedback-text").value = "";
               stars.forEach((s) => s.classList.remove("selected"));
             } else {
+              const responseText = await response.text();
+              console.error("Discord webhook failed:", response.status, responseText);
               alert("Failed to submit feedback. Please try again later.");
             }
           } catch (error) {
