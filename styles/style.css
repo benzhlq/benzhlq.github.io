@@ -378,7 +378,7 @@ footer {
 }
 
 .user-menu {
-  position: absolute;
+  position: relative;
   right: 18px;
   top: 11px;
   display: inline-block;
@@ -397,7 +397,7 @@ footer {
   display: none;
   position: absolute;
   right: 0;
-  top: 50px;
+  top: 100%;
   background-color: #2c2c2c;
   min-width: 120px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
