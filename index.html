@@ -224,9 +224,13 @@
           </div>
         `;
 
-        const userContainer = loginBtn.parentElement;
-        userContainer.innerHTML = '';
-        userContainer.appendChild(userMenu);
+        const loginBtn = document.querySelector('.login-btn');
+        const navRight = loginBtn.parentElement; // should be .nav-right
+        if (navRight) {
+          navRight.innerHTML = '';
+          navRight.appendChild(userMenu);
+      }
+
 
         userMenu.querySelector('.user-avatar').addEventListener('click', () => {
           const dropdown = userMenu.querySelector('.dropdown');
