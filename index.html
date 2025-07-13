@@ -95,8 +95,8 @@
     <script>
       const webhookUrl = '{{DISCORD_WEBHOOK_URL}}';
       
-      console.log('Webhook URL:', webhookUrl);
-      console.log('Is placeholder?', webhookUrl === '{{DISCORD_WEBHOOK_URL}}');
+      console.log('Raw webhook URL:', webhookUrl);
+      console.log('Is GitHub deployment?', webhookUrl !== '{{DISCORD_WEBHOOK_URL}}');
 
       document.getElementById("open-feedback").addEventListener("click", () => {
         document.getElementById("modal-overlay").style.display = "block";
@@ -142,14 +142,15 @@
             ],
           };
 
-          if (!webhookUrl || webhookUrl === '{{DISCORD_WEBHOOK_URL}}') {
-            console.error('Webhook URL not configured properly');
-            alert("Failed to submit feedback. Server configuration error.");
+          // Check if webhook URL is properly configured
+          if (!webhookUrl || webhookUrl === '{{DISCORD_WEBHOOK_URL}}' || webhookUrl.trim() === '') {
+            console.error('Webhook URL not configured - this is expected in local development');
+            alert("Feedback feature is only available on the live site.");
             return;
           }
 
           try {
-            console.log('Sending feedback...');
+            console.log('Sending feedback to Discord...');
             const response = await fetch(webhookUrl, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
