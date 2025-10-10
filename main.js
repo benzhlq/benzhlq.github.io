@@ -1,5 +1,4 @@
 import { authURL, fetchUser, saveSession, loadSession, clearSession } from "./auth.js";
-import { initFeedbackModal, loadWebhook } from "./feedback.js";
 
 // hero parallax
 document.addEventListener("mousemove", (e) => {
@@ -38,6 +37,4 @@ function showUser(user) {
   if (btn && btn.parentElement) btn.parentElement.replaceChild(menu, btn);
 }
 
-// feedback
-initFeedbackModal();
-loadWebhook();
+// feedback module removed
