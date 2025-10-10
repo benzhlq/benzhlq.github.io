@@ -10,6 +10,18 @@
     />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="icon" type="image/png" href="main_logo.png">
+    <link rel="preload" as="image" href="images/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg">
+    <!--
+      Webhook token (DO NOT COMMIT):
+      - Put the real webhook into your GitHub repo secrets:
+          Settings → Secrets and variables → Actions → New secret
+          Name: DISCORD_WEBHOOK_URL
+          Value: https://discord.com/api/webhooks/…/…
+      - CI will write that value into config.secret.js at deploy time.
+      - For local testing only, create c:\Users\Ben\Desktop\Honeycomb\config.secret.js with:
+          export const webhook = "https://discord.com/api/webhooks/…/…";
+        and keep config.secret.js listed in .gitignore so the real token is never committed.
+    -->
     <style type="text/css">
       body {
         background-image: url(images/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg);
@@ -92,176 +104,6 @@
 
     <div id="modal-overlay" class="overlay"></div>
 
-    <script>
-      let webhookUrl;
-
-      fetch('https://honeycombbot.xyz/config')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          webhookUrl = data.webhookUrl;
-        })
-        .catch(error => {
-          console.error("Error fetching config:", error);
-        });
-
-      document.getElementById("open-feedback").addEventListener("click", () => {
-        document.getElementById("modal-overlay").style.display = "block";
-        document.getElementById("feedback-modal").style.display = "block";
-      });
-
-      document.getElementById("modal-overlay").addEventListener("click", () => {
-        document.getElementById("modal-overlay").style.display = "none";
-        document.getElementById("feedback-modal").style.display = "none";
-      });
-
-      const stars = document.querySelectorAll(".star");
-      let selectedStars = 0;
-
-      stars.forEach((star) => {
-        star.addEventListener("click", () => {
-          selectedStars = star.getAttribute("data-value");
-          stars.forEach((s) => s.classList.remove("selected"));
-          for (let i = 0; i < selectedStars; i++) {
-            stars[i].classList.add("selected");
-          }
-        });
-      });
-
-      document.getElementById("submit-feedback").addEventListener("click", async () => {
-        const errorText = document.getElementById("star-error");
-        const feedbackText = document.querySelector(".feedback-text").value;
-        const starsEmoji = `<:star:1329185477705732116>`.repeat(selectedStars);
-
-        if (selectedStars === 0) {
-          errorText.textContent = "Field required";
-        } else {
-          errorText.textContent = "";
-
-          const embed = {
-            embeds: [
-              {
-                title: "Honeycomb Feedback",
-                color: 16776960,
-                fields: [
-                  { name: "**Stars:**", value: starsEmoji },
-                  ...(feedbackText ? [{ name: "**Feedback:**", value: feedbackText }] : []),
-                ],
-                timestamp: new Date().toISOString(),
-              },
-            ],
-          };
-
-          if (!webhookUrl) {
-            alert("Failed to submit feedback. Please try again later.");
-            return;
-          }
-
-          try {
-            const response = await fetch(webhookUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(embed),
-            });
-
-            if (response.ok) {
-              alert("Feedback submitted successfully!");
-              document.getElementById("modal-overlay").style.display = "none";
-              document.getElementById("feedback-modal").style.display = "none";
-            } else {
-              const responseBody = await response.text();
-              console.error("Failed to submit feedback:", response.status, responseBody);
-              alert("Failed to submit feedback. Please try again later.");
-            }
-          } catch (error) {
-            console.error("Error sending feedback:", error);
-            alert("An error occurred. Please try again.");
-          }
-        }
-      });
-
-      const loginBtn = document.querySelector('.login-btn');
-
-      function getDiscordAuthURL() {
-        const clientId = "1328128686649643028";
-        const redirectUri = encodeURIComponent("https://honeycombbot.xyz");
-        const scope = "identify";
-        return `https://discord.com/oauth2/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scope}`;
-      }
-
-      function fetchDiscordUser(token) {
-        return fetch("https://discord.com/api/users/@me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }).then(res => res.json());
-      }
-
-      function saveUserSession(user, token) {
-        localStorage.setItem("discord_user", JSON.stringify(user));
-        localStorage.setItem("discord_token", token);
-      }
-
-      function logout() {
-        localStorage.removeItem("discord_user");
-        localStorage.removeItem("discord_token");
-        location.reload();
-      }
-
-      function showUser(user) {
-        const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-
-        const userMenu = document.createElement("div");
-        userMenu.className = "user-menu";
-        userMenu.innerHTML = `
-          <img src="${avatarUrl}" alt="User Avatar" class="user-avatar">
-          <div class="dropdown">
-            <button onclick="logout()">Logout</button>
-          </div>
-        `;
-
-        const loginBtn = document.querySelector('.login-btn');
-
-        if (loginBtn && loginBtn.parentElement) {
-          loginBtn.parentElement.replaceChild(userMenu, loginBtn);
-        }
-
-
-
-        userMenu.querySelector('.user-avatar').addEventListener('click', () => {
-          const dropdown = userMenu.querySelector('.dropdown');
-          dropdown.classList.toggle('show');
-        });
-      }
-
-      const storedToken = localStorage.getItem("discord_token");
-      const storedUser = localStorage.getItem("discord_user");
-
-      if (storedToken && storedUser) {
-        showUser(JSON.parse(storedUser));
-      }
-
-      if (window.location.hash.includes("access_token")) {
-        const hash = new URLSearchParams(window.location.hash.slice(1));
-        const token = hash.get("access_token");
-
-        fetchDiscordUser(token).then(user => {
-          saveUserSession(user, token);
-          showUser(user);
-        });
-
-        window.history.replaceState({}, document.title, window.location.pathname);
-      }
-
-      if (loginBtn) {
-        loginBtn.addEventListener("click", () => {
-          window.location.href = getDiscordAuthURL();
-        });
-      }
-    </script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
