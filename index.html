@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="icon" type="image/png" href="main_logo.png">
     <link rel="preload" as="image" href="images/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg">
-
     <style type="text/css">
       body {
         background-image: url(images/vecteezy_yellow-orange-gradient-blur-abstract-background_19883113.jpg);
@@ -26,7 +25,8 @@
         <a href="https://ko-fi.com/honeycombbot" target="_blank">Donate</a>
         <a href="#">Support</a>
       </nav>
-      <button class="login-btn" onclick="window.location.href=getDiscordAuthURL()">Login</button>
+      <!-- Login is handled by main.js which uses auth.js -->
+      <button class="login-btn">Login</button>
     </header>
 
     <div class="hero">
@@ -58,7 +58,6 @@
 
     <footer>
       <div class="footer-content">
-        <span class="footer-left" id="open-feedback">Feedback</span>
         <p>&copy; 2025 Honeycomb</p>
         <span class="footer-right">
           <a
@@ -71,29 +70,5 @@
         </span>
       </div>
     </footer>
-
-    <div id="feedback-modal" class="modal">
-      <div class="modal-content">
-        <h2>Feedback</h2>
-        <div class="stars" id="star-container">
-          <img src="images/star.png" class="star" alt="Star" data-value="1" />
-          <img src="images/star.png" class="star" alt="Star" data-value="2" />
-          <img src="images/star.png" class="star" alt="Star" data-value="3" />
-          <img src="images/star.png" class="star" alt="Star" data-value="4" />
-          <img src="images/star.png" class="star" alt="Star" data-value="5" />
-        </div>
-
-        <p id="star-error" class="error-text"></p>
-        <textarea
-          placeholder="Write your feedback..."
-          class="feedback-text"
-        ></textarea>
-        <button id="submit-feedback" class="submit-btn">Submit</button>
-      </div>
-    </div>
-
-    <div id="modal-overlay" class="overlay"></div>
-
-    <script type="module" src="main.js"></script>
   </body>
 </html>
